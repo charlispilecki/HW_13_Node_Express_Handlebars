@@ -19,7 +19,10 @@ function selectAll(callback){
 };
 
 function insertOne(book_name, callback) {
-    var sql = "insert into burgers_books values (" + book_name + ")"
+    var sql = `
+        insert into burgers_books(book_name, book_read) 
+        values ('${book_name}', 0)
+    `
     connection.query(sql, function (err, result) {
         if (err) throw err;
         callback(result)
@@ -29,8 +32,8 @@ function insertOne(book_name, callback) {
 function updateOne(id, book_read, callback) {
     var sql = `
         update burgers_books 
-        where id = ${id} 
         set book_read = ${book_read}
+        where id = ${id} 
     `
     connection.query(sql, function (err, result) {
         if (err) throw err;
