@@ -1,0 +1,14 @@
+<button id="add">Add Book</button>
+<textarea id="new"></textarea>
+<h1>Unread Books</h1>
+<ul>
+    {{#each unreadBooks}}
+    <li onclick="readBook({{this.id}})">{{this.book_name}}</li>
+    {{/each}}
+</ul>
+<h1>Read Books</h1>
+<ul>
+    {{#each readBooks}}
+    <li>{{this.book_name}}</li>
+    {{/each}}
+</ul>
