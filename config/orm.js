@@ -41,8 +41,20 @@ function updateOne(id, book_read, callback) {
       });
 }
 
+function deleteOne(id, callback) {
+    var sql = `
+    DELETE FROM burgers_books 
+    where id=${id}
+    `
+    connection.query(sql, function (err, result) {
+        if (err) throw err;
+        callback(result)
+    });
+}
+
 module.exports = {
     selectAll: selectAll,
     insertOne: insertOne,
-    updateOne: updateOne
+    updateOne: updateOne,
+    deleteOne: deleteOne
 }

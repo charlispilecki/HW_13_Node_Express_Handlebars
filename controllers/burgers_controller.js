@@ -38,4 +38,10 @@ router.put("/api/burgers_books/:id", function(req, res) {
     });
 });
 
+router.delete("/api/burgers_books/:id", function(req, res) {
+    burgersBook.deleteBook(req.params.id, function (result) {
+        res.json(result)
+    });
+});
+
 module.exports = router

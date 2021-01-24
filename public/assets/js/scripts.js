@@ -29,5 +29,30 @@ function readBook(id) {
     })
 }
 
+function unreadBook(id) {
+    fetch('api/burgers_books/' + id, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            book_read: 0
+        })
+    }).then(response => {
+        location.reload()
+    })
+}
+
+function deleteBook(id) {
+    fetch('api/burgers_books/' + id, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(response => {
+        location.reload()
+    })
+}
+
 document.querySelector('#add').addEventListener('click', addBook)
 

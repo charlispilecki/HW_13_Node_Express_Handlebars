@@ -12,8 +12,13 @@ function updateBook(id, bookRead, callback) {
     orm.updateOne(id, bookRead, callback)
 }
 
+function deleteBook(id, callback) {
+    orm.deleteOne(id, callback)
+}
+
 module.exports = {
     addBook: addBook,
     getBooks: getBooks,
-    updateBook: updateBook
+    updateBook: updateBook,
+    deleteBook: deleteBook
 }

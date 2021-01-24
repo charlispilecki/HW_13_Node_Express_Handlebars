@@ -5,8 +5,9 @@
         <h1 class="title is-2">Unread Books</h1>
         <ul class="is-uppercase">
             {{#each unreadBooks}}
-            <li class="mb-2" onclick="readBook({{this.id}})">{{this.book_name}}
-                <button class="button is-small is-rounded ml-1">Read It!</button>
+            <li class="mb-2">{{this.book_name}}
+                <button onclick="readBook({{this.id}})" class="button is-small is-rounded ml-1">Read It!</button>
+                <i class="fas fa-trash-alt" onclick="deleteBook({{this.id}})"></i>
             </li>
             {{/each}}
         </ul>
@@ -15,7 +16,10 @@
         <h1 class="title is-2">Read Books</h1>
         <ul class="is-uppercase is-italic">
             {{#each readBooks}}
-            <li>{{this.book_name}}</li>
+            <li class="mb-2">{{this.book_name}}
+                <i class="fas fa-undo mr-1 ml-1" onclick="unreadBook({{this.id}})"></i>
+                <i class="fas fa-trash-alt" onclick="deleteBook({{this.id}})"></i>
+            </li>
             {{/each}}
         </ul>
     </div>
