@@ -15,4 +15,4 @@ app.use(express.static('public'))
 
 app.use('/', burgersControler)
 
-app.listen(8080)
+app.listen(port = process.env.PORT || 8080)
