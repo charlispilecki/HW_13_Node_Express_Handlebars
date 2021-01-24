@@ -1,14 +1,22 @@
-<button id="add">Add Book</button>
-<textarea id="new"></textarea>
-<h1>Unread Books</h1>
-<ul>
-    {{#each unreadBooks}}
-    <li onclick="readBook({{this.id}})">{{this.book_name}}</li>
-    {{/each}}
-</ul>
-<h1>Read Books</h1>
-<ul>
-    {{#each readBooks}}
-    <li>{{this.book_name}}</li>
-    {{/each}}
-</ul>
+<a id="add" class="button is-primary ml-4 mt-2">Add Book</a>
+<textarea id="new" class="mt-2"></textarea>
+<div class="columns mt-3">
+    <div class="column is-8 has-text-centered has-background-primary-dark has-text-white">
+        <h1 class="title is-2">Unread Books</h1>
+        <ul class="is-uppercase">
+            {{#each unreadBooks}}
+            <li class="mb-2" onclick="readBook({{this.id}})">{{this.book_name}}
+                <button class="button is-small is-rounded ml-1">Read It!</button>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+    <div class="column ml-3 is-4 has-text-centered has-background-info has-text-white">
+        <h1 class="title is-2">Read Books</h1>
+        <ul class="is-uppercase is-italic">
+            {{#each readBooks}}
+            <li>{{this.book_name}}</li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
